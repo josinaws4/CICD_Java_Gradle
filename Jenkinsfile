@@ -10,7 +10,7 @@ pipeline{
             steps{
                 withSonarQubeEnv(credentialsId: 'sonar',installationName: 'sonarserver') {
                         sh "chmod +x gradlew"
-                        sh "./gradlew sonarqube --stacktrace"
+                        sh "./gradlew sonarqube"
                 }
 
             }
