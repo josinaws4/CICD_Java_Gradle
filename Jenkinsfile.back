@@ -5,13 +5,14 @@ pipeline{
             agent {
                 docker {
                     image "openjdk:11"
-                    args '-d'
                 }
             }
             steps{
-                withSonarQubeEnv(credentialsId: 'sonar',installationName: 'sonarserver') {
-                        sh "chmod +x gradlew"
-                        sh "./gradlew sonarqube"
+                scripts{
+                    withSonarQubeEnv(credentialsId: 'sonar',installationName: 'sonarserver') {
+                            sh "chmod +x gradlew"
+                            sh "./gradlew sonarqube"
+                    }
                 }
 
             }
