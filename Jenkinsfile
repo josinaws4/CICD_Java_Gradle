@@ -10,11 +10,12 @@ pipeline{
             steps{
                 withSonarQubeEnv(credentialsId: 'sonar',installationName: 'sonarserver') {
                         sh "chmod +x gradlew"
-                        sh "./gradlew sonarqube --debug"
+                        sh "./gradlew clean"
+                        sh "./gradlew sonarqube"
                 }
 
             }
         }
     }
 
-}
+} 
