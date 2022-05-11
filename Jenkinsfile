@@ -5,7 +5,7 @@ pipeline{
             agent {
                 docker {
                     image "openjdk:11"
-                    args '-i --entrypoint='
+                    args '-it --entrypoint=sh'
                 }
             }
             steps{
