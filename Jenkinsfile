@@ -1,4 +1,4 @@
-pipeline{
+ipipeline{
     agent any
     stages{
         stage("sonar quality check"){
@@ -7,16 +7,13 @@ pipeline{
                     image "openjdk:11"
                 }
             }
-            steps{
-                scripts{
-                    withSonarQubeEnv(credentialsId: 'sonar',installationName: 'sonarqube') {
-                            sh "chmod +x gradlew"
-                            sh "./gradlew sonarqube"
-                    }
+            steps{                
+            	withSonarQubeEnv(credentialsId: 'sonar',installationName: 'sonarqube') {
+                    sh "chmod +x gradlew"
+                    sh "./gradlew sonarqube"
                 }
-
+                
             }
         }
     }
-
 }
