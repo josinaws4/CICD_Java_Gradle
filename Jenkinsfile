@@ -8,9 +8,9 @@ pipeline{
                 }
             }
             steps{                
-            	withSonarQubeEnv(installationName: 'sonarqube',credentialsId: 'sonar') {
+            	withSonarQubeEnv(credentialsId: 'sonar',installationName: 'sonarqube') {
                     sh "chmod +x gradlew"
-                    sh "./gradlew sonarqube"
+                    sh "./gradlew sonarqube  -Dsonar.host.url=http://3.111.32.107:9000  -Dsonar.login=47b1fb11d95101343a2cadbf42da5d947ab965f9"
                 }
                 
             }
